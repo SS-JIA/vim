@@ -13,40 +13,44 @@ set guioptions-=r "remove right hand scrollbar from gvim
 set guioptions-=L "remove left hand scrollbar from gvim
 set tabstop=4 shiftwidth=4 "make tabs 4 spaces wide
 "set expandtab "convert tabs to spaces
-set textwidth=80 "set text width for note taking
-set formatoptions-=t "not not automatically format text with textwidht
+set textwidth=120 "set text width for note taking
+set formatoptions-=t "not not automatically format text with textwidth
 set mouse=a "allow mouse
-autocmd VimEnter * AirlineTheme molokai
+autocmd VimEnter * AirlineTheme zenburn
 autocmd VimEnter * AirlineToggleWhitespace
 set directory=~/tmp "vim swap file directory
 set nowrap "do not wrap text
 set backspace=2 "make backspace work like other applications
+set autoindent "automatically indent new lines
+set incsearch "highlight search as I type
 let g:airline_powerline_fonts=1 "enable powerline fonts for airline
 set encoding=utf-8 "set character encoding
-set guifont=Roboto\ Mono\ for\ Powerline\ 11 "set font
 set fillchars+=vert:\ "configure separators
 set ttimeoutlen=0 "no delay when pressing escape key
 set laststatus=2 "Always display status line
+let g:hardtime_default_on=1 "enable vim hardtime
+let g:list_of_normal_keys = ["j", "k", "l", ";", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
 """""""""""""""""""""""""""""""""""""""""""""
 "" Colors and Visuals
 """""""""""""""""""""""""""""""""""""""""""""
-colorscheme industry
-highlight Normal ctermbg=NONE
-highlight NonText ctermbg=NONE
-
 "Indicate Insert mode
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
 
-"Change cursorline color
+colorscheme solarized
+set background=light
+
 
 """""""""""""""""""""""""""""""""""""""""""""
 ""		GVIM		
 """""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
+	set guifont=Roboto\ Mono\ for\ Powerline\ 10.5 "set font for GUI mode
 	set lines=999 columns=999 "start in fullscreen
 	colorscheme solarized "set solarized colorscheme
+	set background=light "set light background for solarized
+	autocmd VimEnter * AirlineTheme zenburn "Set airlinetheme for GUI
 	autocmd VimEnter * NERDTree "start NERDTREE
 	autocmd VimEnter * wincmd p "set cursor on main window
 endif
@@ -104,9 +108,17 @@ map <silent> <leader>m :w<CR>
 map <silent> <leader>M :wall<CR>
 map <silent> <leader>x :q<CR>
 map <silent> <leader>X :qall<CR>
+" EasyMotion
+map <leader><leader>k <Plug>(easymotion-j)
+map <leader><leader>l <Plug>(easymotion-k)
+map s <Plug>(easymotion-s2)
+map f <Plug>(easymotion-fl)
+map F <Plug>(easymotion-Fl)
+map t <Plug>(easymotion-tl)
+map T <Plug>(easymotion-Tl)
 
 """"""""""""""""""""""""""""""""""""""""""""
-""		Functions
+""		Commands and Functions
 """"""""""""""""""""""""""""""""""""""""""""
 function! NumberToggle()
 	if (&relativenumber==1)
@@ -115,18 +127,44 @@ function! NumberToggle()
 		set relativenumber
 	endif
 endfunc	
+command NumberToggle call NumberToggle()
+
+function! Solarize()
+	colorscheme solarized
+	set background=light 
+	autocmd VimEnter * AirlineTheme zenburn
+endfunc
+command Solarize call Solarize()
+
+function! Industrialize()
+	colorscheme industry
+	highlight Normal ctermbg=NONE
+	highlight NonText ctermbg=NONE
+	autocmd VimEnter * AirlineTheme molokai
+endfunc
+command Industrialize call Industrialize()
 
 """"""""""""""""""""""""""""""""""""""""""""
 ""      Wikis
 """"""""""""""""""""""""""""""""""""""""""""
 let vimwiki={}
-let vimwiki.path='/home/stephen/vimwiki'
-let vimwiki.path_html='/home/stephen/vimwiki/html/'
-let vimwiki.template_path='/home/stephen/vimwiki/'
+let vimwiki.path='/home/stephen/vimwiki/src'
+let vimwiki.path_html='/home/stephen/vimwiki/'
+let vimwiki.template_path='/home/stephen/vimwiki/templates'
 let vimwiki.template_default='default'
 let vimwiki.template_ext='.tpl'
-let vimwiki.auto_export=0
+let vimwiki.auto_export=1
 let vimwiki.css_name='css/style.css'
+
+let schoolnotes={}
+let schoolnotes.path='/home/stephen/Documents/SchoolNotes/src'
+let schoolnotes.path_html='/home/stephen/Documents/SchoolNotes/'
+let schoolnotes.template_path='/home/stephen/Documents/SchoolNotes/'
+let schoolnotes.template_default='default'
+let schoolnotes.template_ext='.tpl'
+let schoolnotes.auto_export=1
+let schoolnotes.css_name='css/style.css'
+
 let cvwiki={}
 let cvwiki.path='/home/stephen/Projects/Network-of-Autonomous-Vehicles/CVWiki/'
 let cvwiki.path_html='/home/stephen/Projects/Network-of-Autonomous-Vehicles/CVWiki/html/'
@@ -135,4 +173,24 @@ let cvwiki.template_path='/home/stephen/Projects/Network-of-Autonomous-Vehicles/
 let cvwiki.template_default='format'
 let cvwiki.template_ext='.tpl'
 let cvwiki.auto_export=1
-let g:vimwiki_list = [vimwiki, cvwiki]
+let g:vimwiki_list = [vimwiki, schoolnotes, cvwiki]
+
+function! VimwikiLinkConverter(link, source_wiki_file, target_html_file)
+	if a:link =~# '^local:'
+	  let link_infos = vimwiki#base#resolve_link(a:link)
+	  let html_link = vimwiki#path#relpath(
+				\ fnamemodify(a:source_wiki_file, ':h'), link_infos.filename)
+	  let relative_link =
+				\ fnamemodify(a:target_html_file, ':h') . '/' . html_link
+	  call system('cp ' . fnameescape(link_infos.filename) .
+				\ ' ' . fnameescape(relative_link))
+	  echo html_link
+	  return html_link
+	endif
+	return ''
+endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""
+""		Scripts
+""""""""""""""""""""""""""""""""""""""""""""
+source ~/.vim/scripts/colorswitch.vim
