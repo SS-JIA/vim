@@ -28,8 +28,6 @@ set encoding=utf-8 "set character encoding
 set fillchars+=vert:\ "configure separators
 set ttimeoutlen=0 "no delay when pressing escape key
 set laststatus=2 "Always display status line
-let g:hardtime_default_on=1 "enable vim hardtime
-let g:list_of_normal_keys = ["j", "k", "l", ";", "-", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
 
 """""""""""""""""""""""""""""""""""""""""""""
 "" Colors and Visuals
@@ -50,7 +48,7 @@ if has("gui_running")
 	set lines=999 columns=999 "start in fullscreen
 	colorscheme solarized "set solarized colorscheme
 	set background=light "set light background for solarized
-	autocmd VimEnter * AirlineTheme zenburn "Set airlinetheme for GUI
+	autocmd VimEnter * AirlineTheme papercolor "Set airlinetheme for GUI
 	autocmd VimEnter * NERDTree "start NERDTREE
 	autocmd VimEnter * wincmd p "set cursor on main window
 endif
@@ -58,64 +56,64 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""
 ""		Key Maps		
 """"""""""""""""""""""""""""""""""""""""""""
-let mapleader=" "
-" Commonly used keys in insert mode
-imap ê (
-imap ë )
-imap ì {
-imap » }
-imap î -
-imap í =
-imap õ [
-imap é ]
-imap ï *
-noremap ê d
-map <M-j> (
-map <A-k> )
-map <A-l> {
-map <A-;> }
-map <A-n> -
-map <A-m> =
-map <A-u> [
-map <A-i> ]
-map <A-o> *
-" Movement
-noremap j h
-noremap k j
-noremap l k
-noremap ; l
-noremap h ;
-map <leader>n $
-map <leader>N ^
-" Buffer
-map <silent> <leader>q; :bnext<CR>
-map <silent> <leader>qj :bprev<CR>
-map <silent> <leader>qd :bp<bar>sp<bar>bn<bar>bd<CR>
-map <silent> <leader>qx :bd<CR>
-map <silent> <leader>qe :BufExplorer<CR>
-" Windows
-map <silent> <leader>j :wincmd h<CR>
-map <silent> <leader>k :wincmd j<CR>
-map <silent> <leader>l :wincmd k<CR>
-map <silent> <leader>; :wincmd l<CR>
-map <silent> <leader>J <C-W>H
-map <silent> <leader>K <C-W>J
-map <silent> <leader>L <C-W>K
-map <silent> <leader>: <C-W>L
-map <silent> <leader>ws <C-W>x
-" File Operations
-map <silent> <leader>m :w<CR>
-map <silent> <leader>M :wall<CR>
-map <silent> <leader>x :q<CR>
-map <silent> <leader>X :qall<CR>
-" EasyMotion
-map <leader><leader>k <Plug>(easymotion-j)
-map <leader><leader>l <Plug>(easymotion-k)
-map s <Plug>(easymotion-s2)
-map f <Plug>(easymotion-fl)
-map F <Plug>(easymotion-Fl)
-map t <Plug>(easymotion-tl)
-map T <Plug>(easymotion-Tl)
+"let mapleader=" "
+"" Commonly used keys in insert mode
+"imap ê (
+"imap ë )
+"imap ì {
+"imap » }
+"imap î -
+"imap í =
+"imap õ [
+"imap é ]
+"imap ï *
+"noremap ê d
+"map <M-j> (
+"map <A-k> )
+"map <A-l> {
+"map <A-;> }
+"map <A-n> -
+"map <A-m> =
+"map <A-u> [
+"map <A-i> ]
+"map <A-o> *
+"" Movement
+"noremap j h
+"noremap k j
+"noremap l k
+"noremap ; l
+"noremap h ;
+"map <leader>n $
+"map <leader>N ^
+"" Buffer
+"map <silent> <leader>q; :bnext<CR>
+"map <silent> <leader>qj :bprev<CR>
+"map <silent> <leader>qd :bp<bar>sp<bar>bn<bar>bd<CR>
+"map <silent> <leader>qx :bd<CR>
+"map <silent> <leader>qe :BufExplorer<CR>
+"" Windows
+"map <silent> <leader>j :wincmd h<CR>
+"map <silent> <leader>k :wincmd j<CR>
+"map <silent> <leader>l :wincmd k<CR>
+"map <silent> <leader>; :wincmd l<CR>
+"map <silent> <leader>J <C-W>H
+"map <silent> <leader>K <C-W>J
+"map <silent> <leader>L <C-W>K
+"map <silent> <leader>: <C-W>L
+"map <silent> <leader>ws <C-W>x
+"" File Operations
+"map <silent> <leader>m :w<CR>
+"map <silent> <leader>M :wall<CR>
+"map <silent> <leader>x :q<CR>
+"map <silent> <leader>X :qall<CR>
+"" EasyMotion
+"map <leader><leader>k <Plug>(easymotion-j)
+"map <leader><leader>l <Plug>(easymotion-k)
+"map s <Plug>(easymotion-s2)
+"map f <Plug>(easymotion-fl)
+"map F <Plug>(easymotion-Fl)
+"map t <Plug>(easymotion-tl)
+"map T <Plug>(easymotion-Tl)
 
 """"""""""""""""""""""""""""""""""""""""""""
 ""		Commands and Functions
