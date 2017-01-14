@@ -56,7 +56,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""
 ""		Key Maps		
 """"""""""""""""""""""""""""""""""""""""""""
-"let mapleader=" "
+let mapleader=" "
 "" Commonly used keys in insert mode
 "imap ê (
 "imap ë )
@@ -187,8 +187,3 @@ function! VimwikiLinkConverter(link, source_wiki_file, target_html_file)
 	endif
 	return ''
 endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""
-""		Scripts
-""""""""""""""""""""""""""""""""""""""""""""
-source ~/.vim/scripts/colorswitch.vim
