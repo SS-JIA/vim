@@ -22,3 +22,9 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/vim-sneak"]
+	path = bundle/vim-sneak
+	url = https://github.com/justinmk/vim-sneak.git
+[submodule "bundle/vim-solarized8"]
+	path = bundle/vim-solarized8
+	url = https://github.com/lifepillar/vim-solarized8.git
