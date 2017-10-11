@@ -28,6 +28,6 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
-[submodule "vimwiki"]
-	path = vimwiki
+[submodule "bundle/vimwiki"]
+	path = bundle/vimwiki
 	url = https://github.com/SS-JIA/vimwiki.git
