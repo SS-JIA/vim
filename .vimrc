@@ -36,8 +36,10 @@ set laststatus=2 "Always display status line
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
 
-colorscheme solarized
-set background=light
+colorscheme solarized8_dark
+autocmd VimEnter * AirlineTheme solarized
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -46,7 +48,7 @@ set background=light
 if has("gui_running")
 	set guifont=Roboto\ Mono\ for\ Powerline\ 10.5 "set font for GUI mode
 	set lines=999 columns=999 "start in fullscreen
-	colorscheme solarized "set solarized colorscheme
+	colorscheme solarized8_light "set solarized colorscheme
 	set background=light "set light background for solarized
 	autocmd VimEnter * AirlineTheme papercolor "Set airlinetheme for GUI
 	autocmd VimEnter * NERDTree "start NERDTREE
@@ -150,6 +152,7 @@ let vimwiki.path='/home/stephen/vimwiki/src'
 let vimwiki.path_html='/home/stephen/vimwiki/'
 let vimwiki.template_path='/home/stephen/vimwiki/templates'
 let vimwiki.template_default='default'
+let vimwiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 let vimwiki.template_ext='.tpl'
 let vimwiki.auto_export=1
 let vimwiki.css_name='css/style.css'
