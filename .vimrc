@@ -12,7 +12,7 @@ set guioptions-=T "remove the Toolbar from gvim
 set guioptions-=r "remove right hand scrollbar from gvim
 set guioptions-=L "remove left hand scrollbar from gvim
 set tabstop=4 shiftwidth=4 "make tabs 4 spaces wide
-"set expandtab "convert tabs to spaces
+set expandtab "convert tabs to spaces
 set textwidth=120 "set text width for note taking
 set formatoptions-=t "not not automatically format text with textwidth
 set mouse=a "allow mouse
@@ -36,11 +36,10 @@ set laststatus=2 "Always display status line
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
 
-colorscheme solarized8_dark
+colorscheme solarized8_light
 autocmd VimEnter * AirlineTheme solarized
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 """""""""""""""""""""""""""""""""""""""""""""
 ""		GVIM		
@@ -116,6 +115,9 @@ let mapleader=" "
 "map F <Plug>(easymotion-Fl)
 "map t <Plug>(easymotion-tl)
 "map T <Plug>(easymotion-Tl)
+"" Searching - Very Magic!
+nnoremap / /\v
+cnoremap s/ s/\v
 
 """"""""""""""""""""""""""""""""""""""""""""
 ""		Commands and Functions
@@ -143,6 +145,8 @@ function! Industrialize()
 	autocmd VimEnter * AirlineTheme molokai
 endfunc
 command Industrialize call Industrialize()
+
+highlight MatchParen cterm=bold ctermbg=none ctermfg=red
 
 """"""""""""""""""""""""""""""""""""""""""""
 ""      Wikis
