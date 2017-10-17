@@ -9,7 +9,7 @@ syntax enable "enable syntax processing
 set rnu "display line numbers
 set t_Co=256 "enable 256 colors in terminal
 set guioptions-=T "remove the Toolbar from gvim
-set guioptions-=r "remove right hand scrollbar from gvim
+set guioptions-=r "remove r:ight hand scrollbar from gvim
 set guioptions-=L "remove left hand scrollbar from gvim
 set tabstop=4 shiftwidth=4 "make tabs 4 spaces wide
 set expandtab "convert tabs to spaces
@@ -36,7 +36,7 @@ set laststatus=2 "Always display status line
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
 
-colorscheme solarized8_light
+colorscheme solarized8_dark
 autocmd VimEnter * AirlineTheme solarized
 "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
@@ -47,8 +47,8 @@ autocmd VimEnter * AirlineTheme solarized
 if has("gui_running")
 	set guifont=Roboto\ Mono\ for\ Powerline\ 10.5 "set font for GUI mode
 	set lines=999 columns=999 "start in fullscreen
-	colorscheme solarized8_light "set solarized colorscheme
-	set background=light "set light background for solarized
+	colorscheme solarized8_dark "set solarized colorscheme
+	set background=dark "set light background for solarized
 	autocmd VimEnter * AirlineTheme papercolor "Set airlinetheme for GUI
 	autocmd VimEnter * NERDTree "start NERDTREE
 	autocmd VimEnter * wincmd p "set cursor on main window
@@ -58,6 +58,12 @@ endif
 ""		Key Maps		
 """"""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
+
+" Enable magic searches
+nnoremap ? ?\v
+nnoremap / /\v
+cnoremap s/ s/\v
+
 "" Commonly used keys in insert mode
 "imap ê (
 "imap ë )
@@ -116,8 +122,6 @@ let mapleader=" "
 "map t <Plug>(easymotion-tl)
 "map T <Plug>(easymotion-Tl)
 "" Searching - Very Magic!
-nnoremap / /\v
-cnoremap s/ s/\v
 
 """"""""""""""""""""""""""""""""""""""""""""
 ""		Commands and Functions
@@ -160,6 +164,7 @@ let vimwiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 let vimwiki.template_ext='.tpl'
 let vimwiki.auto_export=1
 let vimwiki.css_name='css/style.css'
+let vimwiki.maxhi=1
 
 let schoolnotes={}
 let schoolnotes.path='/home/stephen/Documents/SchoolNotes/src'
