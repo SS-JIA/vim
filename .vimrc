@@ -1,8 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""
 ""		External Dependencies for Plugins		
 """"""""""""""""""""""""""""""""""""""""""""
-" vim-autopep8: pip install autopep8
-
+" vim-autopep8 : pip install autopep8
+" gutentags    : exuberant ctags (and move .ctags file to ~)
 
 """""""""""""""""""""""""""""""""""""""""""""
 ""		Basics		
