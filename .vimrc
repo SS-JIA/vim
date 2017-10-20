@@ -1,4 +1,10 @@
+"""""""""""""""""""""""""""""""""""""""""""""
+""		External Dependencies for Plugins		
 """"""""""""""""""""""""""""""""""""""""""""
+" vim-autopep8 : pip install autopep8
+" gutentags    : exuberant ctags (and move .ctags file to ~)
+
+"""""""""""""""""""""""""""""""""""""""""""""
 ""		Basics		
 """"""""""""""""""""""""""""""""""""""""""""
 set nocompatible "be iMproved, no vi compatibility
@@ -9,7 +15,7 @@ syntax enable "enable syntax processing
 set rnu "display line numbers
 set t_Co=256 "enable 256 colors in terminal
 set guioptions-=T "remove the Toolbar from gvim
-set guioptions-=r "remove r:ight hand scrollbar from gvim
+set guioptions-=r "remove right hand scrollbar from gvim
 set guioptions-=L "remove left hand scrollbar from gvim
 set tabstop=4 shiftwidth=4 "make tabs 4 spaces wide
 set expandtab "convert tabs to spaces
@@ -28,6 +34,7 @@ set encoding=utf-8 "set character encoding
 set fillchars+=vert:\ "configure separators
 set ttimeoutlen=0 "no delay when pressing escape key
 set laststatus=2 "Always display status line
+set cinoptions=(0,+1s,:0,=2s,>2s,c1s,g2s,h2s,j1,l1,m1,p2s,t0,u0,w1 "set indent options
 
 """""""""""""""""""""""""""""""""""""""""""""
 "" Colors and Visuals
@@ -121,7 +128,6 @@ cnoremap s/ s/\v
 "map F <Plug>(easymotion-Fl)
 "map t <Plug>(easymotion-tl)
 "map T <Plug>(easymotion-Tl)
-"" Searching - Very Magic!
 
 """"""""""""""""""""""""""""""""""""""""""""
 ""		Commands and Functions
@@ -150,7 +156,12 @@ function! Industrialize()
 endfunc
 command Industrialize call Industrialize()
 
-:command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+function! ClearSearch()
+    let @/=''
+endfunc
+command ClrSrch call ClearSearch()
+
+command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 
 highlight MatchParen cterm=bold ctermbg=none ctermfg=red
 

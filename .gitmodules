@@ -31,3 +31,9 @@
 [submodule "bundle/vimwiki"]
 	path = bundle/vimwiki
 	url = https://github.com/SS-JIA/vimwiki.git
+[submodule "bundle/vim-gutentags"]
+	path = bundle/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
