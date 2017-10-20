@@ -150,6 +150,8 @@ function! Industrialize()
 endfunc
 command Industrialize call Industrialize()
 
+:command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+
 highlight MatchParen cterm=bold ctermbg=none ctermfg=red
 
 """"""""""""""""""""""""""""""""""""""""""""
