@@ -12,7 +12,7 @@ filetype plugin indent on "enable indent scripts and filetype plugins
 execute pathogen#infect()
 autocmd VimEnter * Helptags "load plugin helptags
 syntax enable "enable syntax processing
-set rnu "display line numbers
+set nu "display line numbers
 set t_Co=256 "enable 256 colors in terminal
 set guioptions-=T "remove the Toolbar from gvim
 set guioptions-=r "remove right hand scrollbar from gvim
@@ -34,6 +34,7 @@ set encoding=utf-8 "set character encoding
 set fillchars+=vert:\ "configure separators
 set ttimeoutlen=0 "no delay when pressing escape key
 set laststatus=2 "Always display status line
+set foldmethod=indent "fold by indent level
 set cinoptions=(0,+1s,:0,=2s,>2s,c1s,g2s,h2s,j1,l1,m1,p2s,t0,u0,w1 "set indent options
 
 """""""""""""""""""""""""""""""""""""""""""""
@@ -66,10 +67,20 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
 
-" Enable magic searches
+" Search Helpers
 nnoremap ? ?\v
 nnoremap / /\v
-cnoremap s/ s/\v
+cnoremap /? /\v
+cnoremap ?/ ?\v
+
+" Pattern Helpers
+cnoremap .. .*
+cnoremap ,, \w*
+cnoremap *** **/*.
+
+" Command Mappings
+nnoremap <leader>n :ClrSrch<CR>
+nnoremap <C-k> :CtrlPTag<CR>
 
 "" Commonly used keys in insert mode
 "imap ê (
