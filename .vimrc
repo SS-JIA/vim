@@ -40,6 +40,10 @@ set cinoptions=(0,+1s,:0,=2s,>2s,c1s,g2s,h2s,j1,l1,m1,p2s,t0,u0,w1 "set indent o
 """""""""""""""""""""""""""""""""""""""""""""
 "" Colors and Visuals
 """""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""
+"" Colors and Visuals
+"""""""""""""""""""""""""""""""""""""""""""""
 "Indicate Insert mode
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
@@ -181,7 +185,7 @@ highlight MatchParen cterm=bold ctermbg=none ctermfg=red
 """"""""""""""""""""""""""""""""""""""""""""
 let vimwiki={}
 let vimwiki.path='/home/stephen/vimwiki/src'
-let vimwiki.path_html='/home/stephen/vimwiki/'
+let vimwiki.path_html='/home/stephen/vimwiki/html'
 let vimwiki.template_path='/home/stephen/vimwiki/templates'
 let vimwiki.template_default='default'
 let vimwiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
