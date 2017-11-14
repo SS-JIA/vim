@@ -12,6 +12,7 @@ filetype plugin indent on "enable indent scripts and filetype plugins
 execute pathogen#infect()
 autocmd VimEnter * Helptags "load plugin helptags
 syntax enable "enable syntax processing
+set rnu "display line numbers
 set nu "display line numbers
 set t_Co=256 "enable 256 colors in terminal
 set guioptions-=T "remove the Toolbar from gvim
