@@ -185,9 +185,9 @@ highlight MatchParen cterm=bold ctermbg=none ctermfg=red
 ""      Wikis
 """"""""""""""""""""""""""""""""""""""""""""
 let vimwiki={}
-let vimwiki.path='/home/stephen/vimwiki/src'
-let vimwiki.path_html='/home/stephen/vimwiki/html'
-let vimwiki.template_path='/home/stephen/vimwiki/templates'
+let vimwiki.path='/home/stephen/site/src'
+let vimwiki.path_html='/home/stephen/site/html'
+let vimwiki.template_path='/home/stephen/site/templates'
 let vimwiki.template_default='default'
 let vimwiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
 let vimwiki.template_ext='.tpl'
