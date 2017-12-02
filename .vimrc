@@ -37,6 +37,7 @@ set ttimeoutlen=0 "no delay when pressing escape key
 set laststatus=2 "Always display status line
 set foldmethod=indent "fold by indent level
 set cinoptions=(0,+1s,:0,=2s,>2s,c1s,g2s,h2s,j1,l1,m1,p2s,t0,u0,w1 "set indent options
+set complete-=i "Prevent autocomplete from looking in included files
 
 """""""""""""""""""""""""""""""""""""""""""""
 "" Colors and Visuals
