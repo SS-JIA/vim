@@ -180,6 +180,9 @@ command ClrSrch call ClearSearch()
 
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 
+"Toggle rnu and nornu
+command RN set relativenumber!
+
 highlight MatchParen cterm=bold ctermbg=none ctermfg=red
 
 """"""""""""""""""""""""""""""""""""""""""""
