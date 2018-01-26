@@ -199,24 +199,18 @@ let vimwiki.auto_export=1
 let vimwiki.css_name='css/style.css'
 let vimwiki.maxhi=1
 
-let schoolnotes={}
-let schoolnotes.path='/home/stephen/Documents/SchoolNotes/src'
-let schoolnotes.path_html='/home/stephen/Documents/SchoolNotes/'
-let schoolnotes.template_path='/home/stephen/Documents/SchoolNotes/'
-let schoolnotes.template_default='default'
-let schoolnotes.template_ext='.tpl'
-let schoolnotes.auto_export=1
-let schoolnotes.css_name='css/style.css'
+let personal={}
+let personal.path='/home/stephen/personal/src'
+let personal.path_html='/home/stephen/personal/html'
+let personal.template_path='/home/stephen/personal/templates'
+let personal.template_default='default'
+let personal.nested_syntaxes = {'python': 'python', 'c++': 'cpp'}
+let personal.template_ext='.tpl'
+let personal.auto_export=1
+let personal.css_name='css/style.css'
+let personal.maxhi=1
 
-let cvwiki={}
-let cvwiki.path='/home/stephen/Projects/Network-of-Autonomous-Vehicles/CVWiki/'
-let cvwiki.path_html='/home/stephen/Projects/Network-of-Autonomous-Vehicles/CVWiki/html/'
-let cvwiki.index='index'
-let cvwiki.template_path='/home/stephen/Projects/Network-of-Autonomous-Vehicles/CVWiki/'
-let cvwiki.template_default='format'
-let cvwiki.template_ext='.tpl'
-let cvwiki.auto_export=1
-let g:vimwiki_list = [vimwiki, schoolnotes, cvwiki]
+let g:vimwiki_list = [vimwiki, personal]
 
 function! VimwikiLinkConverter(link, source_wiki_file, target_html_file)
 	if a:link =~# '^local:'
