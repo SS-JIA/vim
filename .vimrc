@@ -4,12 +4,14 @@
 " vim-autopep8 : pip install autopep8
 " gutentags    : exuberant ctags (and move .ctags file to ~)
 
+
+execute pathogen#infect()
+
 """""""""""""""""""""""""""""""""""""""""""""
 ""		Basics		
 """"""""""""""""""""""""""""""""""""""""""""
 set nocompatible "be iMproved, no vi compatibility
 filetype plugin indent on "enable indent scripts and filetype plugins
-execute pathogen#infect()
 autocmd VimEnter * Helptags "load plugin helptags
 syntax enable "enable syntax processing
 set rnu "display line numbers
@@ -23,14 +25,11 @@ set expandtab "convert tabs to spaces
 set textwidth=120 "set text width for note taking
 set formatoptions-=t "not not automatically format text with textwidth
 set mouse=a "allow mouse
-autocmd VimEnter * AirlineTheme zenburn
-autocmd VimEnter * AirlineToggleWhitespace
 set directory=~/tmp "vim swap file directory
 set nowrap "do not wrap text
 set backspace=2 "make backspace work like other applications
 set autoindent "automatically indent new lines
 set incsearch "highlight search as I type
-let g:airline_powerline_fonts=1 "enable powerline fonts for airline
 set encoding=utf-8 "set character encoding
 set fillchars+=vert:\ "configure separators
 set ttimeoutlen=0 "no delay when pressing escape key
@@ -40,16 +39,16 @@ set cinoptions=(0,+1s,:0,=2s,>2s,c1s,g2s,h2s,j1,l1,m1,p2s,t0,u0,w1 "set indent o
 set complete-=i "Prevent autocomplete from looking in included files
 
 """""""""""""""""""""""""""""""""""""""""""""
-"" Colors and Visuals
+"" Visuals
 """""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""
-"" Colors and Visuals
-"""""""""""""""""""""""""""""""""""""""""""""
+" Configure Airline
+autocmd VimEnter * AirlineTheme zenburn
+autocmd VimEnter * AirlineToggleWhitespace
+let g:airline_powerline_fonts=1 "enable powerline fonts for airline
 "Indicate Insert mode
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
-
+" Colorscheme
 colorscheme solarized8_dark
 autocmd VimEnter * AirlineTheme solarized
 "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -72,79 +71,14 @@ endif
 ""		Key Maps		
 """"""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
-
 " Search Helpers
 nnoremap ? ?\v
 nnoremap / /\v
 cnoremap /? /\v
 cnoremap ?/ ?\v
-
-" Pattern Helpers
-cnoremap .. .*
-cnoremap ,, \w*
-cnoremap *** **/*.
-
 " Command Mappings
 nnoremap <leader>n :ClrSrch<CR>
 nnoremap <C-k> :CtrlPTag<CR>
-
-"" Commonly used keys in insert mode
-"imap ê (
-"imap ë )
-"imap ì {
-"imap » }
-"imap î -
-"imap í =
-"imap õ [
-"imap é ]
-"imap ï *
-"noremap ê d
-"map <M-j> (
-"map <A-k> )
-"map <A-l> {
-"map <A-;> }
-"map <A-n> -
-"map <A-m> =
-"map <A-u> [
-"map <A-i> ]
-"map <A-o> *
-"" Movement
-"noremap j h
-"noremap k j
-"noremap l k
-"noremap ; l
-"noremap h ;
-"map <leader>n $
-"map <leader>N ^
-"" Buffer
-"map <silent> <leader>q; :bnext<CR>
-"map <silent> <leader>qj :bprev<CR>
-"map <silent> <leader>qd :bp<bar>sp<bar>bn<bar>bd<CR>
-"map <silent> <leader>qx :bd<CR>
-"map <silent> <leader>qe :BufExplorer<CR>
-"" Windows
-"map <silent> <leader>j :wincmd h<CR>
-"map <silent> <leader>k :wincmd j<CR>
-"map <silent> <leader>l :wincmd k<CR>
-"map <silent> <leader>; :wincmd l<CR>
-"map <silent> <leader>J <C-W>H
-"map <silent> <leader>K <C-W>J
-"map <silent> <leader>L <C-W>K
-"map <silent> <leader>: <C-W>L
-"map <silent> <leader>ws <C-W>x
-"" File Operations
-"map <silent> <leader>m :w<CR>
-"map <silent> <leader>M :wall<CR>
-"map <silent> <leader>x :q<CR>
-"map <silent> <leader>X :qall<CR>
-"" EasyMotion
-"map <leader><leader>k <Plug>(easymotion-j)
-"map <leader><leader>l <Plug>(easymotion-k)
-"map s <Plug>(easymotion-s2)
-"map f <Plug>(easymotion-fl)
-"map F <Plug>(easymotion-Fl)
-"map t <Plug>(easymotion-tl)
-"map T <Plug>(easymotion-Tl)
 
 """"""""""""""""""""""""""""""""""""""""""""
 ""		Commands and Functions
